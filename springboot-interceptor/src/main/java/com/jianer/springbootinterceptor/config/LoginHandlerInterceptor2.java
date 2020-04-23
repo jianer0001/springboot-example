@@ -1,4 +1,4 @@
-package com.jiaenr.springbootinterceptor.config;
+package com.jianer.springbootinterceptor.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -12,16 +12,11 @@ import javax.servlet.http.HttpServletResponse;
  * @Date 2020/4/21 23:18
  */
 @Configuration
-public class LoginHandlerInterceptor1 implements HandlerInterceptor {
+public class LoginHandlerInterceptor2 implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        if (username != null && "user".equalsIgnoreCase(username) && password != null && "user".equals(password)) {
-            return true;
-        }
-        request.getRequestDispatcher("/fail").forward(request,response);
-        return false;
+        request.setCharacterEncoding("utf-8");
+        return true;
     }
 
     @Override

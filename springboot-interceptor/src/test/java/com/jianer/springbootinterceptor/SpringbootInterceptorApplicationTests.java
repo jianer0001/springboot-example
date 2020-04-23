@@ -1,4 +1,4 @@
-package com.jiaenr.springbootinterceptor;
+package com.jianer.springbootinterceptor;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

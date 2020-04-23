@@ -1,4 +1,4 @@
-package com.jiaenr.springbootinterceptor.config;
+package com.jianer.springbootinterceptor.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
