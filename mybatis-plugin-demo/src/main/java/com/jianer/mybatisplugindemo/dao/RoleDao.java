@@ -9,7 +9,7 @@ import java.util.List;
  * (Role)表数据库访问层
  *
  * @author makejava
- * @since 2020-04-23 21:29:46
+ * @since 2020-04-23 22:46:39
  */
 @Mapper
 public interface RoleDao {

@@ -1,4 +1,4 @@
-package com.jianer.springbootasync.service.Impl;
+package com.jianer.springbootasync.service.impl;
 
 import com.jianer.springbootasync.bo.MyDelayed;
 import com.jianer.springbootasync.service.AsyncDelayService;
@@ -8,11 +8,9 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
-import java.text.Format;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.DelayQueue;
-import java.util.concurrent.Delayed;
 
 /**
  * @author 杨兴健

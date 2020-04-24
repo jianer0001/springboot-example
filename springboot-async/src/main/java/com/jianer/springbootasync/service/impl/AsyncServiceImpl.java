@@ -1,11 +1,8 @@
-package com.jianer.springbootasync.service.Impl;
+package com.jianer.springbootasync.service.impl;
 
 import com.jianer.springbootasync.service.AsyncService;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
 
 /**
  * @author 杨兴健

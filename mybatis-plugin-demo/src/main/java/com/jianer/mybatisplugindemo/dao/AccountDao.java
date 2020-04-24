@@ -9,7 +9,7 @@ import java.util.List;
  * (Account)表数据库访问层
  *
  * @author makejava
- * @since 2020-04-23 21:29:42
+ * @since 2020-04-23 22:46:37
  */
 @Mapper
 public interface AccountDao {
