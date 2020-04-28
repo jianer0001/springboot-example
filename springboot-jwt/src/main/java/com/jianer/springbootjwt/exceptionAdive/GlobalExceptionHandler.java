@@ -28,20 +28,27 @@ public class GlobalExceptionHandler {
     public String tokenExpiredException(TokenExpiredException e) {
         return e.getMessage();
     }
+
     @ExceptionHandler(JWTVerificationException.class)
     public String jwtverificationexception(JWTVerificationException e){
         return e.getMessage();
     }
+
     @ExceptionHandler(Exception.class)
     public String exception(Exception e) {
         log.error("系统错误",e);
         return e.getMessage();
     }
+
     @ExceptionHandler(BindException.class)
     public ResultVo bindException(BindException e) {
         log.error("验证请求参数错误",e);
         ObjectError objectError = e.getBindingResult().getAllErrors().get(0);
         return new ResultVo(ResultCode.VALIDATE_ERROR,objectError.getDefaultMessage());
+    }
+    @ExceptionHandler(AppException.class)
+    public ResultVo bindException(AppException e) {
+        return new ResultVo(e.getCode(),e.getMsg(),e.getMessage());
     }
 
 }

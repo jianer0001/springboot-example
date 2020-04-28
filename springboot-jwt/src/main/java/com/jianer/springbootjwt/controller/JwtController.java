@@ -19,10 +19,10 @@ public class JwtController {
     private static final Logger log = LoggerFactory.getLogger(JwtController.class);
     @GetMapping("/hello")
     @TokenValidate
-    public ResultVo hello() {
+    public Object hello() {
         UserInfo user = new UserInfo();
         user.setName("杨兴健").setPassword("123").setGender(true);
         log.info("user:{}",user);
-        return new ResultVo(user);
+        return user;
     }
 }

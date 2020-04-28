@@ -3,6 +3,8 @@ package com.jianer.springbootjwt.controller;
 import com.jianer.springbootjwt.annotation.TokenValidate;
 import com.jianer.springbootjwt.component.JwtUtil;
 import com.jianer.springbootjwt.entity.UserInfo;
+import com.jianer.springbootjwt.exceptionAdive.AppException;
+import com.jianer.springbootjwt.vo.AppCode;
 import com.jianer.springbootjwt.vo.ResultCode;
 import com.jianer.springbootjwt.vo.ResultVo;
 import org.slf4j.Logger;
@@ -29,7 +31,7 @@ public class LoginController {
 
     @PostMapping("/login")
     @TokenValidate(validate = false)
-    public ResultVo login(@Validated UserInfo user, HttpServletRequest request, HttpServletResponse response) {
+    public Object login(@Validated UserInfo user, HttpServletRequest request, HttpServletResponse response) {
 
         if ("jianer".equals(user.getName()) && "jianer".equals(user.getPassword())) {
             try {
@@ -41,6 +43,6 @@ public class LoginController {
                 e.printStackTrace();
             }
         }
-        return new ResultVo(ResultCode.VALIDATE_ERROR);
+        throw new AppException(AppCode.VALIDATE_ERROR,"用户名或密码错误");
     }
 }
