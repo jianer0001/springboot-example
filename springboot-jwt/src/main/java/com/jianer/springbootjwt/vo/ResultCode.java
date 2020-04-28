@@ -10,8 +10,7 @@ public enum ResultCode implements StatusCode{
      */
     SUCCESS(200,"请求成功"),
     FAILED(500,"请求失败"),
-    LOGIN_FAILED_1(1001,"用户名或密码为空"),
-    LOGIN_FAILED_2(1002,"用户名或密码错误");
+    VALIDATE_ERROR(2001,"参数校验失败");
 
     private int code;
     private String message;

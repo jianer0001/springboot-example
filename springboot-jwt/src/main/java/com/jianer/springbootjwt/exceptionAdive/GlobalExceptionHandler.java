@@ -2,8 +2,12 @@ package com.jianer.springbootjwt.exceptionAdive;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
+import com.jianer.springbootjwt.vo.ResultCode;
+import com.jianer.springbootjwt.vo.ResultVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.validation.BindException;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -31,6 +35,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public String exception(Exception e) {
         log.error("系统错误",e);
-        return "系统错误";
+        return e.getMessage();
     }
+    @ExceptionHandler(BindException.class)
+    public ResultVo bindException(BindException e) {
+        log.error("验证请求参数错误",e);
+        ObjectError objectError = e.getBindingResult().getAllErrors().get(0);
+        return new ResultVo(ResultCode.VALIDATE_ERROR,objectError.getDefaultMessage());
+    }
+
 }
